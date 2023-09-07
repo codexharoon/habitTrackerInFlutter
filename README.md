@@ -1,16 +1,14 @@
-# habit_tracker
+# Habit Tracker APP
 
-A new Flutter project.
+## Main Features
 
-## Getting Started
+-> Track Habit on daily basis.
+-> Can Create, Edit and Delete.
+-> HIVE Local Storage.
+-> Heat Map Calendar
 
-This project is a starting point for a Flutter application.
+### UI
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Screenshot_1694096886](https://github.com/codexharoon/habitTrackerInFlutter/assets/104395720/545ad2b9-17b9-433f-a996-6881a519c362)
+![Screenshot_1694096902](https://github.com/codexharoon/habitTrackerInFlutter/assets/104395720/d84ca2c1-2dba-42bc-9518-369323fb5653)
+![Screenshot_1694096907](https://github.com/codexharoon/habitTrackerInFlutter/assets/104395720/2c4ed8dd-da34-492b-affd-b5663a8c1f84)
