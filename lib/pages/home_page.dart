@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         floatingActionButton: FloatingActionButton(  
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.grey[900],
           onPressed: () {
             createNewHabit();
           },
