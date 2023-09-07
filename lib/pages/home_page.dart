@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/components/custom_dialog.dart';
 import 'package:habit_tracker/components/habit_tile.dart';
+import 'package:habit_tracker/components/monthly_summary.dart';
 import 'package:habit_tracker/database/habit_database.dart';
 import 'package:hive_flutter/adapters.dart';
 
@@ -95,26 +96,39 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[300],
-      body: ListView.builder(  
-        itemCount: _habitDB.habitList.length,
-        itemBuilder: (context, index) {
-          //habit tiles
-          return HabitTile(
-            habitname: _habitDB.habitList[index][0],
-            habitCompleted: _habitDB.habitList[index][1],
-            onChanged: (value) => checkBoxTapped(value,index),
-            onSetting: (context) => onSettings(context,index),
-            onDelete: (context) => onDelete(context,index),
-          );
-        },
-      ),
-      floatingActionButton: FloatingActionButton(  
-        onPressed: () {
-          createNewHabit();
-        },
-        child: const Icon(Icons.add),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.grey[300],
+        body: ListView(
+          children: [
+            // heat map monthly summary
+            MonthlySummary(startDate: _box.get('startdate'), datasets: _habitDB.datasets),
+    
+            //list of habits
+            ListView.builder(  
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: _habitDB.habitList.length,
+              itemBuilder: (context, index) {
+                //habit tiles
+                return HabitTile(
+                  habitname: _habitDB.habitList[index][0],
+                  habitCompleted: _habitDB.habitList[index][1],
+                  onChanged: (value) => checkBoxTapped(value,index),
+                  onSetting: (context) => onSettings(context,index),
+                  onDelete: (context) => onDelete(context,index),
+                );
+              },
+            )
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(  
+          backgroundColor: Colors.black,
+          onPressed: () {
+            createNewHabit();
+          },
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }
